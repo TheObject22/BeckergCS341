@@ -7,6 +7,7 @@
  * - How to draw the chart.
  *
  * @author: Tanya L. Crenshaw
+ * @author: Garrett Becker
  * @since: Jan 6, 2015
  */
 
@@ -45,8 +46,13 @@ function drawChart() {
     // width, height, title, horizontal axis, vertical axis.  Finally
     // turn off the legend.
     var options = {
-        width: 1000,
-        height: 563,
+        width: 700,
+        height: 400,
+        animation: {
+            "startup" : true,
+            "duration" : 500
+        },
+
 	title: 'Session Hours Provided by University of Portland Librarians in 2014',
         hAxis: {
             title: 'Month',
