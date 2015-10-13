@@ -11,6 +11,14 @@
  */
 
 
+// extend the namespace
+var librs = librs || {};
+librs.utility = {};
+
+
+//the intention of this approach is to be framework-agnostic
+//and avoid namespace pollution because that is very bad
+librs.utility = function(){
 // hasClass
 //
 // Given an element and a className, return true if the element has
@@ -66,3 +74,62 @@ var removeClass = function(element, classToRemove) {
 	return;
     }
 };
+
+librs.utility.hasClass = function(element, className) {
+  // contents of function omitted for brevity.
+  
+  return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
+  
+  
+  
+};
+
+librs.utility.addClass = function(element, classToAdd) {
+  // contents of function omitted for brevity.
+  
+  
+  
+  var currentClassValue = element.className;
+
+    if (currentClassValue.indexOf(classToAdd) == -1) {
+        if ((currentClassValue == null) || (currentClassValue === "")) {
+            element.className = classToAdd;
+        } else {
+            element.className += " " + classToAdd;
+        }
+    }
+};
+
+librs.utility.removeClass = function(element, classToRemove) {
+ // contents of function omitted for brevity.
+ 
+ 
+ var currentClassValue = element.className;
+    
+    // removing a class value when there is more than one class
+    // value present and the class you want to remove is not the
+    // first one
+    if (currentClassValue.indexOf(" " + classToRemove) != -1) {
+	element.className = element.className.replace(" " + classToRemove, "");
+	return;
+    }
+    
+    // removing the first class value when there is more than one
+    // class value present
+    if (currentClassValue.indexOf(classToRemove + " ") != -1) {
+	element.className = element.className.replace(classToRemove + " ", "");
+	return;
+    }
+    
+    // removing the first class value when there is only one class
+    // value present
+    if (currentClassValue.indexOf(classToRemove) != -1) {
+	element.className = element.className.replace(classToRemove, "");
+	return;
+    }
+};                        
+
+
+
+}; //end module
+librs.utility();

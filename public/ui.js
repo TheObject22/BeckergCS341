@@ -4,6 +4,12 @@
  * Defines functionality for instrumenting the user-interface.                                                                     
  *                                                                                                                                 
  */
+
+var librs = librs || {};
+librs.ui = {};
+librs.ui = function(){
+	
+
 var toggle = function() {
 
     console.log('About!');
@@ -46,3 +52,5 @@ var initialize = function() {
 // the js is loaded after the DOM is loaded.  It is a                                                                              
 // good time to initialize the UI elements in the page.                                                                            
 initialize();
+};// end module
+librs.ui();

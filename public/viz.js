@@ -10,6 +10,7 @@
  * @author: Garrett Becker
  * @since: Jan 6, 2015
  */
+var librs = librs || {};
 
 google.load('visualization', '1', {packages: ['corechart']});
 
